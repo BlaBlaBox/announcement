@@ -31,7 +31,7 @@ def create_announcement():
     text = request.json['text']
     image_link = request.json['image_link']
     movie_link = request.json['movie_link']
-    new_announcement = add_announcement(title, text, image_link, movie_link)
+    new_announcement = add_announcement(title=title, text=text, image_link=image_link, movie_link=movie_link)
     if new_announcement is None:
         return jsonify({'error': 'Announcement could not added.'}), 400
 
@@ -50,7 +50,7 @@ def get():
 
 
 
-# Validate the admin signin
+# Validate the admin signin#######TODO###############
 @auth.verify_password
 def verify_password(username, password):
     # TODO: Change check if is admin in the database or not.
