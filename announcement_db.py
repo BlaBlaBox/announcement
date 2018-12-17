@@ -1,7 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-from announcement_config import app
-
-db = SQLAlchemy(app)
+from announcement_config import db
 
 class announce(db.Model):
     announcement_id = db.Column(db.Integer, primary_key=True)
