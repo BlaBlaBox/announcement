@@ -1,0 +1,14 @@
+*.pyc
+
+__pycache__
+
+.vscode
+.project
+.pydevproject
+.idea
+.code
+
+venv/
+docs/build/
+__pycache__/*
+classes/__pycache__/*
