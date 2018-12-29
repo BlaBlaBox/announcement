@@ -1,14 +1,13 @@
 import requests
-import pytest
 
-# Usage pytest -q test.py
+# Usage pytest announcement_test.py
 
 
 class AnnouncementAction():
-    base_url = 'https://blablabox-announcement.herokuapp.com'
+    # base_url = 'https://blablabox-announcement.herokuapp.com'
 
     # For local testing
-    # base_url = 'http://127.0.0.1:8000'
+    base_url = 'http://127.0.0.1:8000'
 
     def create_announcement(self, announcement_info, required_status):
         r = requests.post(url=self.base_url + '/announcement/create', json=announcement_info)
@@ -34,13 +33,19 @@ def test_announcement_actions():
         'movie_link': 'youtube.com'
     }
 
+    # Try to get announcement while there is no announcement
+    aAction.get_announcement(204)
+
     # Create announcement
     aAction.create_announcement(announcement_info, 200)
 
-    # Get all announcement
+    # Get all announcements
     aAction.get_announcement(200)
 
-    # Send wrong json
+    # Try to send request with data that is not JSON
+    aAction.create_announcement(None, 400)
+
+    # Send incomplete JSON
     announcement_info_temp = {
         'title': 'test',
         'image_link': 'google.com'

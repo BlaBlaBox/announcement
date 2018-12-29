@@ -1,12 +1,16 @@
 *.pyc
 
 __pycache__
+htmlcov/
+htmlcov
 
 .vscode
 .project
 .pydevproject
 .idea
 .code
+
+.coverage
 
 venv/
 docs/build/
